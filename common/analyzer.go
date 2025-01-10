@@ -246,7 +246,7 @@ func (a *Analyzer2) Sprint() string {
 	out += Printer.Sprintf("- Included on-chain: %10d (%5s) \n", a.nIncluded, Int64DiffPercentFmt(a.nIncluded, a.nUniqueTransactions, 1))
 	out += Printer.Sprintf("- Not included:      %10d (%5s) \n", a.nNotIncluded, Int64DiffPercentFmt(a.nNotIncluded, a.nUniqueTransactions, 1))
 
-	if a.Sourelog == nil || len(a.Sourelog) == 0 {
+	if len(a.Sourelog) == 0 {
 		return out
 	}
 

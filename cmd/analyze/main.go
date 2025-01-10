@@ -15,7 +15,7 @@ import (
 var (
 	version = "dev" // is set during build process
 	debug   = os.Getenv("DEBUG") == "1"
-	max     = common.GetEnvInt("MAX", 0)
+	maxEnv  = common.GetEnvInt("MAX", 0)
 
 	// Helpers
 	log *zap.SugaredLogger
@@ -119,7 +119,7 @@ func analyzeV2(cCtx *cli.Context) error {
 			log.Infow(common.Printer.Sprintf("- Loaded %10d / %d rows", i, num), "memUsed", common.GetMemUsageHuman())
 		}
 		entries[stus[0].Hash] = &stus[0]
-		if i+1 == max {
+		if i+1 == maxEnv {
 			break
 		}
 	}
